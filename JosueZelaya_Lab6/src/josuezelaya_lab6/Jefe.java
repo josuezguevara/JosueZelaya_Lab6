@@ -23,12 +23,17 @@ public class Jefe extends Persona {
         super();
     }
 
-    public Jefe(String seccion_trabajo, int numero_clientes, double ganancia, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
-        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel);
+    public Jefe(String seccion_trabajo, int numero_clientes, double ganancia, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel) {
+        super(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel);
         this.seccion_trabajo = seccion_trabajo;
         this.numero_clientes = numero_clientes;
         this.ganancia = ganancia;
     }
+
+    
+
+    
+  
 
     public String getSeccion_trabajo() {
         return seccion_trabajo;

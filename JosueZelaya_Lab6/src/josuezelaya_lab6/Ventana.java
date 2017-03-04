@@ -544,7 +544,7 @@ public class Ventana extends javax.swing.JFrame {
         if (tab_principal.getSelectedIndex() == 2) {
             DefaultComboBoxModel modelo
                     = new DefaultComboBoxModel();
-            for (Familiares temp : familiares) {
+            for (Object temp : personas) {
                 modelo.addElement(temp);
             }
             cb_padre.setModel(modelo);
@@ -580,24 +580,23 @@ public class Ventana extends javax.swing.JFrame {
                 hora_salida = tf_hora_salida.getText();
                 sueldo = Double.parseDouble(tf_sueldo.getText());
                 estado = cb_estado.getSelectedItem().toString();
-
-                personas.add(new Empleado(seccion_trabajo, hora_entrada, hora_salida, sueldo, estado, edad, identidad, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color));
-                DefaultTreeModel modelo = (DefaultTreeModel) arbol_genealogico.getModel();
-                DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) modelo.getRoot();
-                DefaultMutableTreeNode nodo_persona;
-                nodo_persona = new DefaultMutableTreeNode(new Persona(edad, identidad, nacionalidad, lugar_nacimiento, nombre, modelo, color));
-                DefaultMutableTreeNode npersona;
-                npersona = new DefaultMutableTreeNode(nombre);
-                nodo.add(nodo_persona);
-                nodo_persona.add(npersona);
-                modelo.reload();
+                 personas.add(new Empleado(seccion_trabajo, hora_entrada, hora_salida, sueldo, estado, edad, identidad, nacionalidad, lugar_nacimiento, nombre, color));
+//                DefaultMutableTreeNode nodo = (DefaultMutableTreeNode) modelo.getRoot();
+//                DefaultMutableTreeNode nodo_persona;
+//                nodo_persona = new DefaultMutableTreeNode(new Persona(edad, identidad, nacionalidad, lugar_nacimiento, nombre, modelo, color));
+//                DefaultMutableTreeNode npersona;
+//                npersona = new DefaultMutableTreeNode(nombre);
+//                nodo.add(nodo_persona);
+//                nodo_persona.add(npersona);
+//                modelo.reload();
                 JOptionPane.showMessageDialog(this, "Se guardo correctamente");
 
             } else if (tab_persona.getSelectedIndex() == 1) {//cliente
                 ticket = Integer.parseInt(tf_ticket.getText().toString());
                 dinero_lleva = Double.parseDouble(tf_dinero.getText());
+               personas.add(new Cliente(ticket, dinero_lleva, edad, identidad, nacionalidad, lugar_nacimiento, nombre, color));
                 JOptionPane.showMessageDialog(this, "Se guardo correctamente");
-                personas.add(new Cliente(ticket, dinero_lleva, edad, identidad, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color));
+                //personas.add(new Cliente(ticket, dinero_lleva, ordenes, edad, identidad, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color, familiares));
             }
 
             //resetear variables
@@ -640,7 +639,7 @@ public class Ventana extends javax.swing.JFrame {
         Color color_piel;
         Familiares familiar_padre;
         try {
-            edad = Integer.parseInt(tf_edad_familia.getText());
+            edad = Integer.parseInt(tf_edad_familia.getText().toString());
             id = Long.parseLong(tf_identidad_familia.getText());
             nacionalidad = cb_nacionalidad_familia.getSelectedItem().toString();
             lugar_nacimiento = tf_lugar_nacimiento_familia.getText();

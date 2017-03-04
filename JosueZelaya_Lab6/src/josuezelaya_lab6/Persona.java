@@ -26,16 +26,17 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
+    public Persona(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel) {
         this.edad = edad;
         this.id = id;
         this.nacionalidad = nacionalidad;
         this.lugar_nacimiento = lugar_nacimiento;
         this.nombre = nombre;
-        this.arbol_genealogico = arbol_genealogico;
         this.color_piel = color_piel;
     }
 
+   
+    
     public int getEdad() {
         return edad;
     }

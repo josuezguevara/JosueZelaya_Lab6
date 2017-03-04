@@ -25,8 +25,8 @@ public class Empleado extends Persona{
         super();
     }
 
-    public Empleado(String seccion_trabajo, String hora_entrada, String hora_salida, double sueldo, String estado, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
-        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel);
+    public Empleado(String seccion_trabajo, String hora_entrada, String hora_salida, double sueldo, String estado, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel) {
+        super(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel);
         this.seccion_trabajo = seccion_trabajo;
         this.hora_entrada = hora_entrada;
         this.hora_salida = hora_salida;
@@ -35,9 +35,8 @@ public class Empleado extends Persona{
     }
 
     
-    Empleado(String seccion_trabajo, String hora_entrada, String hora_salida, double sueldo, String estado, int edad, long identidad, String nacionalidad, String lugar_nacimiento, String nombre, JTree arbol_genealogico, Color color) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    
+    
 
     public String getSeccion_trabajo() {
         return seccion_trabajo;

@@ -23,18 +23,13 @@ public class Cliente  extends Persona{
         super();
     }
 
-    public Cliente(int ticket, double dinero_quelleva, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
-        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel);
+    public Cliente(int ticket, double dinero_quelleva, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel) {
+        super(edad, id, nacionalidad, lugar_nacimiento, nombre, color_piel);
         this.ticket = ticket;
         this.dinero_quelleva = dinero_quelleva;
     }
 
     
-
-    Cliente(int ticket, double dinero_lleva, int edad, long identidad, String nacionalidad, String lugar_nacimiento, String nombre, JTree arbol_genealogico, Color color) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
     public int getTicket() {
         return ticket;
     }
