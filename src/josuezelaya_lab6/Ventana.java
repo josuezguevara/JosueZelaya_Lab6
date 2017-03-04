@@ -7,14 +7,9 @@ package josuezelaya_lab6;
 
 import com.sun.org.apache.xalan.internal.xsltc.compiler.Template;
 import java.awt.Color;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JColorChooser;
-import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
@@ -42,9 +37,6 @@ public class Ventana extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        menu_popup = new javax.swing.JPopupMenu();
-        eliminar_boton = new javax.swing.JMenuItem();
-        modificar_boton = new javax.swing.JMenuItem();
         tab_principal = new javax.swing.JTabbedPane();
         panel_inicio = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -53,7 +45,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         tf_num_identidad = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cb_nacionalidad = new javax.swing.JComboBox<>();
+        cb_nacionalidad = new javax.swing.JComboBox<String>();
         jLabel4 = new javax.swing.JLabel();
         sp_edad = new javax.swing.JSpinner();
         jLabel5 = new javax.swing.JLabel();
@@ -66,7 +58,7 @@ public class Ventana extends javax.swing.JFrame {
         boton_guardar_personas = new javax.swing.JButton();
         tab_persona = new javax.swing.JTabbedPane();
         jPanel3 = new javax.swing.JPanel();
-        cb_seccion = new javax.swing.JComboBox<>();
+        cb_seccion = new javax.swing.JComboBox<String>();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         tf_hora_entrada = new javax.swing.JTextField();
@@ -75,7 +67,7 @@ public class Ventana extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         tf_sueldo = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
-        cb_estado = new javax.swing.JComboBox<>();
+        cb_estado = new javax.swing.JComboBox<String>();
         jLabel15 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
         tf_ticket = new javax.swing.JTextField();
@@ -95,12 +87,12 @@ public class Ventana extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         boton_color_familia = new javax.swing.JToggleButton();
         jLabel22 = new javax.swing.JLabel();
-        cb_padre = new javax.swing.JComboBox<>();
-        cb_nacionalidad_familia = new javax.swing.JComboBox<>();
+        cb_padre = new javax.swing.JComboBox<String>();
+        cb_nacionalidad_familia = new javax.swing.JComboBox<String>();
         boton_guardar_familia = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel23 = new javax.swing.JLabel();
-        seccion_jefe = new javax.swing.JComboBox<>();
+        seccion_jefe = new javax.swing.JComboBox<String>();
         jLabel24 = new javax.swing.JLabel();
         clientes_jefe = new javax.swing.JSpinner();
         jLabel25 = new javax.swing.JLabel();
@@ -111,22 +103,6 @@ public class Ventana extends javax.swing.JFrame {
         menu_guardarcomo = new javax.swing.JMenuItem();
         menu_salir = new javax.swing.JMenuItem();
         menu_about = new javax.swing.JMenuItem();
-
-        eliminar_boton.setText("Eliminar");
-        eliminar_boton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminar_botonActionPerformed(evt);
-            }
-        });
-        menu_popup.add(eliminar_boton);
-
-        modificar_boton.setText("Modificar");
-        modificar_boton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                modificar_botonActionPerformed(evt);
-            }
-        });
-        menu_popup.add(modificar_boton);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -155,7 +131,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel3.setText("Nacionalidad");
 
-        cb_nacionalidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estadounidense", "Hondureña", "Alemana", "Canadiense" }));
+        cb_nacionalidad.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Estadounidense", "Hondureña", "Alemana", "Canadiense" }));
 
         jLabel4.setText("Edad");
 
@@ -173,11 +149,6 @@ public class Ventana extends javax.swing.JFrame {
 
         javax.swing.tree.DefaultMutableTreeNode treeNode1 = new javax.swing.tree.DefaultMutableTreeNode("Padres");
         arbol_genealogico.setModel(new javax.swing.tree.DefaultTreeModel(treeNode1));
-        arbol_genealogico.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                arbol_genealogicoMouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(arbol_genealogico);
 
         jLabel7.setText("Arbol Genealogico");
@@ -188,8 +159,13 @@ public class Ventana extends javax.swing.JFrame {
                 boton_guardar_personasMouseClicked(evt);
             }
         });
+        boton_guardar_personas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boton_guardar_personasActionPerformed(evt);
+            }
+        });
 
-        cb_seccion.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Cocina", "Venta de Gatos", "Venta de Baleadas" }));
+        cb_seccion.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cocina", "Venta de Gatos", "Venta de Baleadas" }));
 
         jLabel10.setText("Seccion de Trabajo");
 
@@ -207,7 +183,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel14.setText("Sueldo");
 
-        cb_estado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Disponible", "Ocupado" }));
+        cb_estado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Disponible", "Ocupado" }));
 
         jLabel15.setText("Estado");
 
@@ -428,7 +404,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel22.setText("Familiar Padre");
 
-        cb_nacionalidad_familia.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estadounidense", "Hondureña", "Alemana", "Canadiense" }));
+        cb_nacionalidad_familia.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Estadounidense", "Hondureña", "Alemana", "Canadiense" }));
 
         boton_guardar_familia.setText("Guardar");
         boton_guardar_familia.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -531,7 +507,7 @@ public class Ventana extends javax.swing.JFrame {
 
         jLabel23.setText("Seccion de Trabajo");
 
-        seccion_jefe.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Venta de Gatos", "Venta de Baleadas" }));
+        seccion_jefe.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Venta de Gatos", "Venta de Baleadas" }));
 
         jLabel24.setText("Numero de Clientes Atendidos");
 
@@ -579,11 +555,6 @@ public class Ventana extends javax.swing.JFrame {
         jMenu1.setText("Menu");
 
         menu_guardar.setText("Guardar");
-        menu_guardar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_guardarActionPerformed(evt);
-            }
-        });
         jMenu1.add(menu_guardar);
 
         menu_guardarcomo.setText("Guardar como");
@@ -594,13 +565,7 @@ public class Ventana extends javax.swing.JFrame {
         });
         jMenu1.add(menu_guardarcomo);
 
-        menu_salir.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_MASK));
         menu_salir.setText("Salir");
-        menu_salir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu_salirActionPerformed(evt);
-            }
-        });
         jMenu1.add(menu_salir);
 
         menu_about.setText("About");
@@ -632,7 +597,6 @@ public class Ventana extends javax.swing.JFrame {
 
     private void menu_guardarcomoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_guardarcomoActionPerformed
         // TODO add your handling code here:
-        
     }//GEN-LAST:event_menu_guardarcomoActionPerformed
 
     private void tab_principalStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_tab_principalStateChanged
@@ -707,12 +671,7 @@ public class Ventana extends javax.swing.JFrame {
         }
         ActualizarArbol();
     }//GEN-LAST:event_boton_guardar_personasMouseClicked
-
-    private void boton_colorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_colorMouseClicked
-        // color de persona
-        boton_color.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.black));
-    }//GEN-LAST:event_boton_colorMouseClicked
-  public void ActualizarArbol() {
+    public void ActualizarArbol() {
         //arbol
         DefaultTreeModel arbol = (DefaultTreeModel) arbol_genealogico.getModel();
         DefaultMutableTreeNode raiz = (DefaultMutableTreeNode) arbol.getRoot();
@@ -732,6 +691,11 @@ public class Ventana extends javax.swing.JFrame {
             arbol.reload();
         }
     }
+    private void boton_colorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_colorMouseClicked
+        // color de persona
+        boton_color.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.black));
+    }//GEN-LAST:event_boton_colorMouseClicked
+
     private void boton_guardar_familiaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_familiaActionPerformed
         // TODO add your handling code here:
 
@@ -774,6 +738,7 @@ public class Ventana extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Ocurrio un error y no se guardaron los datos");
         }
         ActualizarArbol();
+
     }//GEN-LAST:event_boton_guardar_familiaMouseClicked
 
     private void boton_color_familiaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_boton_color_familiaMouseClicked
@@ -781,73 +746,10 @@ public class Ventana extends javax.swing.JFrame {
         boton_color_familia.setBackground(JColorChooser.showDialog(this, "Seleccione un color", Color.black));
     }//GEN-LAST:event_boton_color_familiaMouseClicked
 
-    private void menu_salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_salirActionPerformed
+    private void boton_guardar_personasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boton_guardar_personasActionPerformed
         // TODO add your handling code here:
-        System.exit(0);
-    }//GEN-LAST:event_menu_salirActionPerformed
+    }//GEN-LAST:event_boton_guardar_personasActionPerformed
 
-    private void eliminar_botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminar_botonActionPerformed
-        // TODO add your handling code here:
-           int response = JOptionPane.showConfirmDialog(this, "Seguro de Eliminar", "Confirm",
-                JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE);
-        if (response == JOptionPane.OK_OPTION) {
-            DefaultTreeModel m
-                    = (DefaultTreeModel) arbol_genealogico.getModel();
-            m.removeNodeFromParent(nodo_seleccionado);
-            m.reload();
-        }
-    }//GEN-LAST:event_eliminar_botonActionPerformed
-
-    private void modificar_botonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificar_botonActionPerformed
-        // modificar del jtree de arbol genealogico
-        String e=JOptionPane.showInputDialog("Ingrese nombre");
-        hijo_seleccionada.setNombre(e);
-    }//GEN-LAST:event_modificar_botonActionPerformed
-
-    private void arbol_genealogicoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_arbol_genealogicoMouseClicked
-        // TODO add your handling code here:
-       if (evt.isMetaDown()) {//si es el click contextual
-            //seleccionar un nodo con click derecho
-            //devuleve la lisrta mas cercana
-            int row = arbol_genealogico.getClosestRowForLocation(evt.getX(), evt.getY());
-            arbol_genealogico.setSelectionRow(row);
-            Object v1 = arbol_genealogico.getSelectionPath().getLastPathComponent(); //devuelve todo el objeto que esta ahi adentro
-            nodo_seleccionado = (DefaultMutableTreeNode) v1;
-            if (nodo_seleccionado.getUserObject() instanceof Familiares) {
-                hijo_seleccionada = (Familiares) nodo_seleccionado.getUserObject();
-                menu_popup.show(evt.getComponent(), evt.getX(), evt.getY());
-            }
-        }
-      
-    }//GEN-LAST:event_arbol_genealogicoMouseClicked
-
-    private void menu_guardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_guardarActionPerformed
-        // TODO add your handling code here:
-         //guardar archivo
-        JFileChooser jfc=new JFileChooser();//para salvar
-        int seleccion=jfc.showSaveDialog(this);
-        FileWriter fw=null;
-        BufferedWriter bw=null;
-        
-        if (seleccion==JFileChooser.APPROVE_OPTION){
-            try {
-                File fichero=jfc.getSelectedFile();
-                fw= new FileWriter(fichero);
-                bw=new BufferedWriter(fw);//lo mantiene 
-                bw.flush();//envia a la Rom
-               
-            } catch (Exception e) {
-                e.printStackTrace();
-            }finally{
-                try {
-                    bw.close();
-                    fw.close();
-                } catch (IOException e) {
-                }
-            }
-        }
-    }//GEN-LAST:event_menu_guardarActionPerformed
-    
     /**
      * @param args the command line arguments
      */
@@ -896,7 +798,6 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> cb_padre;
     private javax.swing.JComboBox<String> cb_seccion;
     private javax.swing.JSpinner clientes_jefe;
-    private javax.swing.JMenuItem eliminar_boton;
     private javax.swing.JTextField ganancia_jefe;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -934,9 +835,7 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JMenuItem menu_about;
     private javax.swing.JMenuItem menu_guardar;
     private javax.swing.JMenuItem menu_guardarcomo;
-    private javax.swing.JPopupMenu menu_popup;
     private javax.swing.JMenuItem menu_salir;
-    private javax.swing.JMenuItem modificar_boton;
     private javax.swing.JPanel panel_inicio;
     private javax.swing.JComboBox<String> seccion_jefe;
     private javax.swing.JSpinner sp_edad;
@@ -959,6 +858,4 @@ public class Ventana extends javax.swing.JFrame {
     ArrayList<Familiares> familiares = new ArrayList();
     ArrayList<Orden> ordenes = new ArrayList();
     ArrayList<Familiares> hijos = new ArrayList();
-    DefaultMutableTreeNode nodo_seleccionado;
-   Familiares hijo_seleccionada;
 }

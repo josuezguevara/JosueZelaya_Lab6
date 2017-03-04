@@ -7,34 +7,36 @@ package josuezelaya_lab6;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.tree.DefaultTreeModel;
 
 /**
  *
  * @author usuario
  */
-class Familiares {
+public class Persona {
     private int edad;
     private long id;
     private String nacionalidad;
     private String lugar_nacimiento;
     private String nombre;
+    private DefaultTreeModel arbol_genealogico;
     private Color color_piel;
-    private Persona familiar_padre;
-    private ArrayList<Familiares> hijos;
+    private ArrayList<Familiares> familiares;
 
-    public Familiares() {
+    public Persona() {
     }
 
-    public Familiares(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel, Persona  familiar_padre) {
+    public Persona(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel) {
         this.edad = edad;
         this.id = id;
         this.nacionalidad = nacionalidad;
         this.lugar_nacimiento = lugar_nacimiento;
         this.nombre = nombre;
         this.color_piel = color_piel;
-        this.familiar_padre = familiar_padre;
     }
 
+   
+    
     public int getEdad() {
         return edad;
     }
@@ -75,6 +77,14 @@ class Familiares {
         this.nombre = nombre;
     }
 
+    public DefaultTreeModel getArbol_genealogico() {
+        return arbol_genealogico;
+    }
+
+    public void setArbol_genealogico(DefaultTreeModel arbol_genealogico) {
+        this.arbol_genealogico = arbol_genealogico;
+    }
+
     public Color getColor_piel() {
         return color_piel;
     }
@@ -83,20 +93,12 @@ class Familiares {
         this.color_piel = color_piel;
     }
 
-    public Persona getFamiliar_padre() {
-        return familiar_padre;
+    public ArrayList<Familiares> getFamiliares() {
+        return familiares;
     }
 
-    public void setFamiliar_padre(Persona familiar_padre) {
-        this.familiar_padre = familiar_padre;
-    }
-
-    public ArrayList<Familiares> getHijos() {
-        return hijos;
-    }
-
-    public void setHijos(ArrayList<Familiares> hijos) {
-        this.hijos = hijos;
+    public void setFamiliares(ArrayList<Familiares> familiares) {
+        this.familiares = familiares;
     }
 
     @Override
