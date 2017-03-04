@@ -7,6 +7,7 @@ package josuezelaya_lab6;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -17,20 +18,25 @@ public class Empleado extends Persona{
     private String seccion_trabajo;
     private String hora_entrada;
     private String hora_salida;
-    private long sueldo;
+    private double sueldo;
     private String estado;
 
     public Empleado() {
         super();
     }
 
-    public Empleado(String seccion_trabajo, String hora_entrada, String hora_salida, long sueldo, String estado, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel, ArrayList<Familiares> familiares) {
-        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel, familiares);
+    public Empleado(String seccion_trabajo, String hora_entrada, String hora_salida, double sueldo, String estado, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
+        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel);
         this.seccion_trabajo = seccion_trabajo;
         this.hora_entrada = hora_entrada;
         this.hora_salida = hora_salida;
         this.sueldo = sueldo;
         this.estado = estado;
+    }
+
+    
+    Empleado(String seccion_trabajo, String hora_entrada, String hora_salida, double sueldo, String estado, int edad, long identidad, String nacionalidad, String lugar_nacimiento, String nombre, JTree arbol_genealogico, Color color) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public String getSeccion_trabajo() {
@@ -57,11 +63,11 @@ public class Empleado extends Persona{
         this.hora_salida = hora_salida;
     }
 
-    public long getSueldo() {
+    public double getSueldo() {
         return sueldo;
     }
 
-    public void setSueldo(long sueldo) {
+    public void setSueldo(double sueldo) {
         this.sueldo = sueldo;
     }
 

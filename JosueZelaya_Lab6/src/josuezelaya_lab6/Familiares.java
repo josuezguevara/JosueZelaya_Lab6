@@ -25,7 +25,7 @@ class Familiares {
     public Familiares() {
     }
 
-    public Familiares(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel, Familiares familiar_padre, ArrayList<Familiares> hijos) {
+    public Familiares(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, Color color_piel, Familiares familiar_padre) {
         this.edad = edad;
         this.id = id;
         this.nacionalidad = nacionalidad;
@@ -33,7 +33,6 @@ class Familiares {
         this.nombre = nombre;
         this.color_piel = color_piel;
         this.familiar_padre = familiar_padre;
-        this.hijos = hijos;
     }
 
     public int getEdad() {

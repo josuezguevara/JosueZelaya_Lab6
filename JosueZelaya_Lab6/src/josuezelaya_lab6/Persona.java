@@ -26,7 +26,7 @@ public class Persona {
     public Persona() {
     }
 
-    public Persona(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel, ArrayList<Familiares> familiares) {
+    public Persona(int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
         this.edad = edad;
         this.id = id;
         this.nacionalidad = nacionalidad;
@@ -34,7 +34,6 @@ public class Persona {
         this.nombre = nombre;
         this.arbol_genealogico = arbol_genealogico;
         this.color_piel = color_piel;
-        this.familiares = familiares;
     }
 
     public int getEdad() {

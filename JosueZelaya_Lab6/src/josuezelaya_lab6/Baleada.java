@@ -18,9 +18,8 @@ public class Baleada extends    Articulo{
         super();
     }
 
-    public Baleada(ArrayList ingredientes, int precio) {
+    public Baleada( int precio) {
         super(precio);
-        this.ingredientes = ingredientes;
     }
 
     public ArrayList getIngredientes() {

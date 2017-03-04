@@ -7,6 +7,7 @@ package josuezelaya_lab6;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import javax.swing.JTree;
 import javax.swing.tree.DefaultTreeModel;
 
 /**
@@ -15,18 +16,23 @@ import javax.swing.tree.DefaultTreeModel;
  */
 public class Cliente  extends Persona{
     private int ticket;
-    private long dinero_quelleva;
+    private double dinero_quelleva;
     private ArrayList<Orden> ordenes;
 
     public Cliente() {
         super();
     }
 
-    public Cliente(int ticket, long dinero_quelleva, ArrayList<Orden> ordenes, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel, ArrayList<Familiares> familiares) {
-        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel, familiares);
+    public Cliente(int ticket, double dinero_quelleva, int edad, long id, String nacionalidad, String lugar_nacimiento, String nombre, DefaultTreeModel arbol_genealogico, Color color_piel) {
+        super(edad, id, nacionalidad, lugar_nacimiento, nombre, arbol_genealogico, color_piel);
         this.ticket = ticket;
         this.dinero_quelleva = dinero_quelleva;
-        this.ordenes = ordenes;
+    }
+
+    
+
+    Cliente(int ticket, double dinero_lleva, int edad, long identidad, String nacionalidad, String lugar_nacimiento, String nombre, JTree arbol_genealogico, Color color) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     public int getTicket() {
@@ -37,11 +43,11 @@ public class Cliente  extends Persona{
         this.ticket = ticket;
     }
 
-    public long getDinero_quelleva() {
+    public double getDinero_quelleva() {
         return dinero_quelleva;
     }
 
-    public void setDinero_quelleva(long dinero_quelleva) {
+    public void setDinero_quelleva(double dinero_quelleva) {
         this.dinero_quelleva = dinero_quelleva;
     }
 
