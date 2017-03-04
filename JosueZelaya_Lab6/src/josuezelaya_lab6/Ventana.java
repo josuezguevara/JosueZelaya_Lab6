@@ -45,6 +45,9 @@ public class Ventana extends javax.swing.JFrame {
         menu_popup = new javax.swing.JPopupMenu();
         eliminar_boton = new javax.swing.JMenuItem();
         modificar_boton = new javax.swing.JMenuItem();
+        jd_about = new javax.swing.JDialog();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTextArea1 = new javax.swing.JTextArea();
         tab_principal = new javax.swing.JTabbedPane();
         panel_inicio = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -127,6 +130,28 @@ public class Ventana extends javax.swing.JFrame {
             }
         });
         menu_popup.add(modificar_boton);
+
+        jTextArea1.setColumns(20);
+        jTextArea1.setRows(5);
+        jTextArea1.setText("El programa consiste en ayudar al presidente\nDonald Trump a volver a prosperar y subir\nla economia del pais, haciendo un programa\nque calcule la cantidad de gatos o \ncantidad de baleadas compradas.\nLlevar un sistema de Empleados, Clientes, \ny Jefes.");
+        jScrollPane2.setViewportView(jTextArea1);
+
+        javax.swing.GroupLayout jd_aboutLayout = new javax.swing.GroupLayout(jd_about.getContentPane());
+        jd_about.getContentPane().setLayout(jd_aboutLayout);
+        jd_aboutLayout.setHorizontalGroup(
+            jd_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_aboutLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 353, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        jd_aboutLayout.setVerticalGroup(
+            jd_aboutLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_aboutLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -604,6 +629,11 @@ public class Ventana extends javax.swing.JFrame {
         jMenu1.add(menu_salir);
 
         menu_about.setText("About");
+        menu_about.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu_aboutActionPerformed(evt);
+            }
+        });
         jMenu1.add(menu_about);
 
         jMenuBar1.add(jMenu1);
@@ -847,6 +877,15 @@ public class Ventana extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_menu_guardarActionPerformed
+
+    private void menu_aboutActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu_aboutActionPerformed
+        // TODO add your handling code here:
+          jd_about.setModal(true);
+        jd_about.pack();
+        jd_about.setLocationRelativeTo(this);
+        jd_about.setVisible(true);
+        
+    }//GEN-LAST:event_menu_aboutActionPerformed
     
     /**
      * @param args the command line arguments
@@ -931,6 +970,9 @@ public class Ventana extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JDialog jd_about;
     private javax.swing.JMenuItem menu_about;
     private javax.swing.JMenuItem menu_guardar;
     private javax.swing.JMenuItem menu_guardarcomo;
